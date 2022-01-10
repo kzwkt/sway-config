@@ -2,6 +2,9 @@
 
 ### Copyright (C) 2022 Vinni Richburgh
 #
+# Example output:
+# |   1.8% & 45.0°C |   5.3% (841M / 16G) |   160B/s &   451B/s | 2022-01-10 |  8:39:33 PM
+#
 # This script is to be called from ~/.config/sway/config.
 # In case of an error (or two) check,
 #       -if all the files written to by this script exist already (If in doubt, run this script once from within your favourite terminal emulator.)
