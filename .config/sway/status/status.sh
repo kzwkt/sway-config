@@ -5,13 +5,12 @@
 # This script is to be called from ~/.config/sway/config.
 # In case of an error (or two) check,
 #       -if all the files written to by this script exist already (If in doubt, run this script once from within your favourite terminal emulator.)
-#       -if you've baked "Device Drivers ---> Hardware Monitoring Support ---> AMD Family 10h+ temperature sensor" and so on into your kernel. (No idea abou
-t Intel, but I'm sure you'll find a way;))
+#       -if you've baked "Device Drivers ---> Hardware Monitoring Support ---> AMD Family 10h+ temperature sensor" and so on into your kernel. (No idea about Intel, but I'm sure you'll find a way;))
+#       -ifconfig's output and change eth0 to whatever your network interface is called
 #       -if this script is set to be executable
 #       -if your pc is plugged in and turned on
 #
-# This script will be subject to change in the near future, where I'll fix some inconveniences like up- and downstream only being displayed in bytes per sec
-ond. (ugly af)
+# This script will be subject to change in the near future, where I'll fix some inconveniences like up- and downstream only being displayed in bytes per second. (ugly af)
 #
 # Have fun ricing the sh1t out of your sway-wm and consider visiting vinni-richburgh.com (I'm making games.)
 #
@@ -21,13 +20,13 @@ ond. (ugly af)
 date=$(date +'%Y-%m-%d | %l:%M:%S %p')
 
 # Gets the number of bytes received/sent, calculates their delta and adds some padding, so you don't get a seizure from looking at your swaybar.
-rx_delta=$(($(cat /sys/class/net/enp40s0/statistics/rx_bytes) - $(cat ~/.config/sway/status/.rx_bytes)))B/s
+rx_delta=$(($(cat /sys/class/net/eth0/statistics/rx_bytes) - $(cat ~/.config/sway/status/.rx_bytes)))B/s
 rx_delta=$(printf "%8s" $rx_delta)
-cp -f /sys/class/net/enp40s0/statistics/rx_bytes ~/.config/sway/status/.rx_bytes
+cp -f /sys/class/net/eth0/statistics/rx_bytes ~/.config/sway/status/.rx_bytes
 
-tx_delta=$(($(cat /sys/class/net/enp40s0/statistics/tx_bytes) - $(cat ~/.config/sway/status/.tx_bytes)))B/s
+tx_delta=$(($(cat /sys/class/net/eth0/statistics/tx_bytes) - $(cat ~/.config/sway/status/.tx_bytes)))B/s
 tx_delta=$(printf "%8s" $rx_delta)
-cp -f /sys/class/net/enp40s0/statistics/tx_bytes ~/.config/sway/status/.tx_bytes
+cp -f /sys/class/net/eth0/statistics/tx_bytes ~/.config/sway/status/.tx_bytes
 
 # Gets the ram usage and formats it a bit. (also padding)
 ram_total=$(free -h --si | awk 'NR==2 {print $2}')
