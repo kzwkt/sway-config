@@ -9,7 +9,7 @@ In this repo you'll find...
   -some temporary files that are required to calculate the differences of certain values over time (e.g. .config/sway/status/.rx_bytes)
 
 .config/sway/status/status.sh IS NOT GUARANTEED TO WORK OUT OF THE BOX!
-There's AMD drivers involved in extracting current cpu temperature. (For more details have a look at .config/sway/status/status.sh)
+There's AMD drivers involved in extracting the current cpu temperature. (For more details have a look at .config/sway/status/status.sh)
 Owners of e.g. an Intel cpu will have to do their own research on how to read from their thermal sensors.
 
 Have a nice one!
